@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -25,7 +26,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String getUsername=ed1.getText().toString();
-                Toast.makeText(getApplicationContext(),getUsername,Toast.LENGTH_LONG).show();
+                String getPassword=ed2.getText().toString();
+                if (getUsername.equals("admin")&& getPassword.equals("12345"))
+                {
+                    Intent i=new Intent(getApplicationContext(), Logpage.class);
+                    startActivity(i);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(),"wrong username or password",Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
