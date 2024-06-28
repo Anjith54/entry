@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ public class Logpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logpage);
+
         ed1=(EditText)findViewById(R.id.Uname);
         ed2=(EditText)findViewById(R.id.AdNo);
         ed3=(EditText)findViewById(R.id.SyNo);
@@ -39,6 +41,11 @@ public class Logpage extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                SharedPreferences preferences =getSharedPreferences("login",MODE_PRIVATE);
+                SharedPreferences.Editor editor= preferences.edit();
+                editor.clear();
+                editor.apply();
                 Intent i=new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(i);
             }

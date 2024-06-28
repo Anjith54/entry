@@ -5,6 +5,10 @@
     android:background="#BFE9ED"
     android:padding="30px"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:background="@drawable/download"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,7 +18,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Uname"/>
+        android:id="@+id/Uname"
+        android:drawableLeft="@drawable/baseline_ac_unit_24"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -26,7 +31,8 @@
         android:layout_height="wrap_content"
         android:hint="Enter the admission no"
         android:inputType="number"
-        android:id="@+id/AdNo"/>
+        android:id="@+id/AdNo"
+        android:drawableLeft="@drawable/baseline_ac_unit_24"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +43,9 @@
         android:layout_height="wrap_content"
         android:hint="Enter the system no"
         android:inputType="number"
-        android:id="@+id/SyNo"/>
+        android:id="@+id/SyNo"
+        android:drawableLeft="@drawable/baseline_ac_unit_24"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +55,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter department name"
-        android:id="@+id/DptNo"/>
+        android:id="@+id/DptNo"
+        android:drawableLeft="@drawable/baseline_ac_unit_24"/>
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

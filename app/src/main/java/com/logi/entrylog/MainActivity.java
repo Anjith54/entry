@@ -5,6 +5,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -19,6 +20,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences preferences =getSharedPreferences("login",MODE_PRIVATE);
+        String username=preferences.getString("user",null);
+        if(username!=null)
+        {
+            Intent i=new Intent(getApplicationContext(), Logpage.class);
+            startActivity(i);
+        }
+
+
         ed1=(EditText) findViewById(R.id.Uname);
         ed2=(EditText) findViewById(R.id.Pass);
         b1=(AppCompatButton) findViewById(R.id.Log);
@@ -29,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
                 String getPassword=ed2.getText().toString();
                 if (getUsername.equals("admin")&& getPassword.equals("12345"))
                 {
+                    SharedPreferences preferences =getSharedPreferences("login",MODE_PRIVATE);
+                    SharedPreferences.Editor editor= preferences.edit();
+                    editor.putString("user","admin");
+                    editor.apply();
                     Intent i=new Intent(getApplicationContext(), Logpage.class);
                     startActivity(i);
                 }
