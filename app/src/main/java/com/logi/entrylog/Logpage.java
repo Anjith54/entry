@@ -10,9 +10,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.jar.Attributes;
+
 public class Logpage extends AppCompatActivity {
     AppCompatButton b2,b1;
     EditText ed1,ed2,ed3,ed4;
+    String apiUrl="http://10.0.4.16:3000/api/students";
 
 
 
@@ -35,7 +41,19 @@ public class Logpage extends AppCompatActivity {
                 String getAdmNo=ed2.getText().toString();
                 String getSyNo=ed3.getText().toString();
                 String getDptNo=ed4.getText().toString();
-                Toast.makeText(getApplicationContext(),getName+getDptNo+getAdmNo+getSyNo,Toast.LENGTH_LONG).show();
+                JSONObject student=new JSONObject();
+                try {
+                    student.put("name",getName);
+                    student.put("admission_number",getAdmNo);
+                    student.put("system_number",getSyNo);
+                    student.put("department",getDptNo);
+
+
+                }
+                catch (JSONException e){
+                    throw new RuntimeException(e);
+                };
+
             }
         });
         b2.setOnClickListener(new View.OnClickListener() {
